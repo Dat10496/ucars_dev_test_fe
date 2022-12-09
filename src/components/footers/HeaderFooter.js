@@ -19,7 +19,15 @@ const styles = {
 
 function HeaderFooter() {
   return (
-    <Box sx={{ height: 410, backgroundColor: "#232323", p: 1, color: "#FFF" }}>
+    <Box
+      sx={{
+        height: 410,
+        backgroundColor: "#232323",
+        p: 1,
+        color: "#FFF",
+        mt: 8,
+      }}
+    >
       <Box
         sx={{
           display: "flex",

@@ -94,7 +94,13 @@ function BottomFooter() {
         <Box>
           <Typography sx={{ display: "flex" }} variant="body2">
             Get the{" "}
-            <Typography color="#EE1B24" ml={0.5} mr={0.5} variant="body2">
+            <Typography
+              component="span"
+              color="#EE1B24"
+              ml={0.5}
+              mr={0.5}
+              variant="body2"
+            >
               {" "}
               latest
             </Typography>{" "}
