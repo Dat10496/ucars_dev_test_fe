@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { FEATURES_VEHICLE } from "../../utils/LabelFilter";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -33,24 +33,43 @@ function BodyFooter() {
       setBackBtn(true);
       setFwdBtn(false);
     } else if (secondNum === 6) {
-      setFwdBtn(true);
-      setBackBtn(false);
+      setFirstNum(0);
+      setSecondNum(3);
     } else {
       setBackBtn(false);
       setFwdBtn(false);
     }
   }, [firstNum, secondNum]);
 
+  // ------------------- @media-query------------------
+  const [firstNumSlice, setFirstNumSlice] = useState(0);
+  const [secondNumSlice, setSecondNumSlice] = useState(1);
+
+  const handleChangeVehicle = () => {
+    setFirstNumSlice(firstNumSlice + 1);
+    setSecondNumSlice(secondNumSlice + 1);
+  };
+
+  useEffect(() => {
+    if (secondNumSlice === 5) {
+      setFirstNumSlice(0);
+      setSecondNumSlice(1);
+    }
+  }, [firstNumSlice, secondNumSlice]);
+  //--------------------------------------------
+
   return (
     <Box sx={{ height: 600 }}>
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
-          p: 8,
+          flexDirection: { sm: "row", xs: "column" },
+          justifyContent: { sm: "space-between", xs: "center" },
+          alignItems: "center",
+          p: { sm: 8, xs: 3 },
         }}
       >
-        <Box sx={{ width: 450 }}>
+        <Box sx={{ width: { sm: 450, xs: 375 } }}>
           <Typography variant="h4" fontWeight={700} sx={{ color: "#EE1B24" }}>
             Our Featured Vehicles.
           </Typography>
@@ -63,12 +82,15 @@ function BodyFooter() {
         <Box
           sx={{
             display: "flex",
-
             justifyContent: "flex-end",
             flexDirection: "column",
           }}
         >
-          <Button sx={{ height: 30 }} color="error" variant="contained">
+          <Button
+            sx={{ height: 30, display: { sm: "block", xs: "none" } }}
+            color="error"
+            variant="contained"
+          >
             View More
           </Button>
         </Box>
@@ -76,7 +98,7 @@ function BodyFooter() {
 
       <Box
         sx={{
-          display: "flex",
+          display: { sm: "flex", xs: "none" },
           alignItems: "center",
           justifyContent: "space-evenly",
         }}
@@ -86,9 +108,9 @@ function BodyFooter() {
         </Button>
 
         {FEATURES_VEHICLE.slice(firstNum, secondNum).map((vehicle) => (
-          <>
+          <Box key={vehicle.id}>
             {vehicle.brand && (
-              <Box key={vehicle.brand} width={415} height={361} p={2}>
+              <Box key={vehicle.id} width={415} height={361} p={2}>
                 <Box
                   component="img"
                   src={vehicle.image}
@@ -131,9 +153,9 @@ function BodyFooter() {
                 </Box>
               </Box>
             )}
-
             {vehicle.imageAdvertise && (
               <Box
+                key={vehicle.id}
                 component="img"
                 src={vehicle.imageAdvertise}
                 alt="imgAd"
@@ -142,10 +164,109 @@ function BodyFooter() {
                 mb={5}
               />
             )}
-          </>
+          </Box>
         ))}
+
         <Button disabled={fwdBtn} onClick={handleFwd}>
           <ArrowForwardIosIcon />
+        </Button>
+      </Box>
+
+      {/* media-query */}
+      <Box
+        sx={{
+          display: { sm: "none", xs: "flex" },
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
+        {FEATURES_VEHICLE.slice(firstNumSlice, secondNumSlice).map(
+          (vehicle) => (
+            <Box key={vehicle.id}>
+              {vehicle.brand && (
+                <Box key={vehicle.id} width={415} height={361} p={2}>
+                  <Box
+                    component="img"
+                    src={vehicle.image}
+                    alt="img"
+                    width={350}
+                    height={200}
+                  />
+
+                  <Box
+                    sx={{
+                      justifyContent: "space-between",
+                      width: 350,
+                      height: 80,
+                      mt: 4,
+                    }}
+                  >
+                    <Box sx={styles.styleBox}>
+                      <Typography variant="h5" fontWeight={500}>
+                        {vehicle.brand}
+                      </Typography>
+                      <Typography variant="subtitle2">Duplex</Typography>
+                    </Box>
+
+                    <Box sx={styles.styleBox}>
+                      <Typography
+                        variant="subtitle2"
+                        color="#5F5F5F"
+                        fontWeight={400}
+                      >
+                        Lekki,phase 2
+                      </Typography>
+                      <Typography
+                        fontWeight={700}
+                        variant="subtitle2"
+                        color="#EE1B24"
+                      >
+                        {vehicle.price}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              )}
+              {vehicle.imageAdvertise && (
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: 361,
+                  }}
+                >
+                  <Box
+                    key={vehicle.id}
+                    component="img"
+                    src={vehicle.imageAdvertise}
+                    alt="imgAd"
+                    width={281}
+                    height={290}
+                  />
+                </Box>
+              )}
+            </Box>
+          )
+        )}
+      </Box>
+
+      <Box
+        sx={{
+          display: { sm: "none", xs: "flex" },
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Button
+          sx={{
+            height: 30,
+          }}
+          color="error"
+          variant="contained"
+          onClick={handleChangeVehicle}
+        >
+          View More
         </Button>
       </Box>
     </Box>

@@ -6,7 +6,7 @@ import advertiseImg from "../images/advertise.png";
 function CarListingCard() {
   return (
     <Box>
-      <Grid container spacing={1.5} mt={1}>
+      <Grid container spacing={1.5}>
         <Grid item xs={8} md={4} lg={3}>
           <Box
             component="img"
@@ -15,9 +15,9 @@ function CarListingCard() {
             width="281px"
           />
         </Grid>
-        {CAR.map((car, index) => (
-          <Grid key={car.name} item xs={8} md={4} lg={3}>
-            <Card sx={{ width: 281, height: 361 }} key={car.brand}>
+        {CAR.map((car) => (
+          <Grid key={car.id} item xs={8} md={4} lg={3}>
+            <Card sx={{ width: 281, height: 361 }}>
               <Box
                 component="img"
                 src={car.image}

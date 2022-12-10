@@ -21,7 +21,7 @@ function HeaderFooter() {
   return (
     <Box
       sx={{
-        height: 410,
+        height: { sm: 410, xs: 1053 },
         backgroundColor: "#232323",
         p: 1,
         color: "#FFF",
@@ -45,7 +45,14 @@ function HeaderFooter() {
         </Typography>
       </Box>
 
-      <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
+      <Box
+        sx={{
+          display: { sm: "flex", xs: "flex" },
+          flexDirection: { sm: "row", xs: "column" },
+          justifyContent: { sm: "space-evenly", xs: "center" },
+          alignItems: "center",
+        }}
+      >
         <Box sx={styles.styleBox}>
           <PinDropIcon sx={{ width: 75, height: 105 }} />
           <Typography>Find Car</Typography>

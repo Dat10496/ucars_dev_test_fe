@@ -51,6 +51,7 @@ export const VEHICLE_TYPES = [
 
 export const CAR = [
   {
+    id: 1,
     brand: "BMW X3",
     price: "$248,000",
     lease: "$2,302/mo",
@@ -60,6 +61,7 @@ export const CAR = [
     logo: bmw,
   },
   {
+    id: 2,
     brand: "Alpine A110",
     price: "$248,000",
     lease: "$2,302/mo",
@@ -69,6 +71,7 @@ export const CAR = [
     logo: alpine,
   },
   {
+    id: 3,
     brand: "Aston Martin DBS Superlegge...Alpine A110",
     price: "POA",
     lease: "$2,302/mo",
@@ -78,6 +81,7 @@ export const CAR = [
     logo: aston,
   },
   {
+    id: 4,
     brand: "Alfa Romeo Stelvio",
     price: "$278,000",
     lease: "$2,302/mo",
@@ -87,6 +91,7 @@ export const CAR = [
     logo: bmw,
   },
   {
+    id: 5,
     brand: "Aston Martin DB11 Volante",
     price: "POA",
     lease: "$2,302/mo",
@@ -96,6 +101,7 @@ export const CAR = [
     logo: aston,
   },
   {
+    id: 6,
     brand: "Aston Martin DB11",
     price: "$799,000",
     lease: "$2,302/mo",
@@ -105,6 +111,7 @@ export const CAR = [
     logo: aston,
   },
   {
+    id: 7,
     brand: "Aston Martin DB11 Volante",
     price: "POA",
     lease: "$2,302/mo",
@@ -116,12 +123,12 @@ export const CAR = [
 ];
 
 export const FEATURES_VEHICLE = [
-  { brand: "The Palace", price: "$2,000", image: palace },
-  { brand: "IVY RORY", price: "$2,000", image: rory },
-  { imageAdvertise: advertiseImg },
-  { brand: "REXONA", price: "$2,000", image: rexona },
-  { brand: "The Palace", price: "$2,000", image: palace },
-  { brand: "IVY RORY", price: "$2,000", image: rory },
+  { id: 1, brand: "The Palace", price: "$2,000", image: palace },
+  { id: 2, brand: "IVY RORY", price: "$2,000", image: rory },
+  { id: 3, imageAdvertise: advertiseImg },
+  { id: 4, brand: "REXONA", price: "$2,000", image: rexona },
+  { id: 5, brand: "The Palace", price: "$2,000", image: palace },
+  { id: 6, brand: "IVY RORY", price: "$2,000", image: rory },
 ];
 
 export const FILTER_BRANDING = [

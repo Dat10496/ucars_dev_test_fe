@@ -4,7 +4,13 @@ import React from "react";
 function InFormFooter() {
   return (
     <Box
-      sx={{ height: 575, p: 10, color: "#5F5F5F", backgroundColor: "#F1F1F1" }}
+      sx={{
+        height: 575,
+        p: 10,
+        color: "#5F5F5F",
+        backgroundColor: "#F1F1F1",
+        display: { sm: "block", xs: "none" },
+      }}
     >
       <Stack direction="column" spacing={4}>
         <Typography fontWeight={600}>

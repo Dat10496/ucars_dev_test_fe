@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Box } from "@mui/material";
-import logoImg from "../images/UCARS Logo.jpg";
+import logoImg from "../images/UCARS Logo.png";
 
 function Logo({ disabledLink = false, sx }) {
   const logo = (

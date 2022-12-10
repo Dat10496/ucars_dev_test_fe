@@ -3,7 +3,9 @@ import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import "./App.css";
 import AdminPage from "./pages/AdminPage";
-import AdminLayout from "./layouts/AdminLayout";
+import AdminLayout from "./layouts/admin/AdminLayout";
+import AdminBrandDetail from "./pages/AdminBrandDetail";
+import AdminBrandEdit from "./pages/AdminBrandEdit";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           </Route>
           <Route element={<AdminLayout />}>
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin/detail" element={<AdminBrandDetail />} />
+            <Route path="/admin/edit" element={<AdminBrandEdit />} />
           </Route>
         </Routes>
       </BrowserRouter>

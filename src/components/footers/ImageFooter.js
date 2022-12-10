@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import footerImg from "../../images/imgfooter.png";
+import footerQueryImg from "../../images/footer_queryImg.png";
 
 const styleBox = {
   backgroundImage: `url(${footerImg})`,
@@ -8,19 +9,54 @@ const styleBox = {
   color: "#FFF",
 };
 
+const styleBoxQuery = {
+  backgroundImage: `url(${footerQueryImg})`,
+  height: 690,
+  color: "#FFF",
+};
+
 function ImageFooter() {
   return (
-    <Box style={styleBox}>
-      <Box sx={{ width: 300, position: "relative", left: 100, top: 150 }}>
-        <Typography fontWeight={600} variant="h2">
-          Questions about buying or renting?
-        </Typography>
+    <>
+      <Box sx={{ display: { sm: "block", xs: "none" } }} style={styleBox}>
+        <Box sx={{ width: 300, position: "relative", left: 100, top: 150 }}>
+          <Typography fontWeight={600} variant="h2">
+            Questions about buying or renting?
+          </Typography>
 
-        <Button sx={{ width: 300, mt: 3 }} variant="contained" color="error">
-          Ask Us
-        </Button>
+          <Button sx={{ width: 300, mt: 3 }} variant="contained" color="error">
+            Ask Us
+          </Button>
+        </Box>
       </Box>
-    </Box>
+
+      {/* media-query */}
+      <Box
+        sx={{ display: { xs: "block", sm: "none", color: "#FFFF" } }}
+        style={styleBoxQuery}
+      >
+        <Box
+          sx={{
+            width: 300,
+            position: "relative",
+            left: 50,
+            top: 50,
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "column",
+            height: 550,
+          }}
+        >
+          <Typography fontWeight={600} variant="h2">
+            Questions about buying or renting?
+          </Typography>
+
+          <Button sx={{ width: 300, mt: 3 }} variant="contained" color="error">
+            Ask Us
+          </Button>
+        </Box>
+      </Box>
+    </>
   );
 }
 

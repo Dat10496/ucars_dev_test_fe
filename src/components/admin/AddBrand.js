@@ -112,7 +112,7 @@ function AddBrand({ handleModalClose }) {
               onClick={handleClick}
             >
               <AdjustRoundedIcon />
-              <Typography>Active</Typography>
+              <Typography variant="subtitle2">Active</Typography>
               <KeyboardArrowDownIcon />
             </Box>
             <Popover
@@ -147,7 +147,7 @@ function AddBrand({ handleModalClose }) {
                   }}
                 >
                   <AdjustRoundedIcon />
-                  <Typography>Active</Typography>
+                  <Typography variant="subtitle2">Active</Typography>
                 </Box>
 
                 <Box
@@ -167,7 +167,7 @@ function AddBrand({ handleModalClose }) {
                   }}
                 >
                   <AdjustRoundedIcon />
-                  <Typography>Inactive</Typography>
+                  <Typography variant="subtitle2">Inactive</Typography>
                 </Box>
               </Box>
             </Popover>

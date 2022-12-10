@@ -10,8 +10,8 @@ function HomePage() {
         <Paper
           sx={{
             position: "relative",
-            bottom: "70px",
-            height: 140,
+            bottom: { sm: "70px", xs: "120px" },
+            height: { sm: 140, xs: 480 },
             alignItems: "center",
             display: "flex",
             justifyContent: "center",

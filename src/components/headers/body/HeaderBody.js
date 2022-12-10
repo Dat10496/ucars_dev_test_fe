@@ -6,10 +6,10 @@ function HeaderBody() {
   return (
     <Box
       sx={{
-        display: "flex",
+        display: { sm: "flex", xs: "none" },
         justifyContent: "space-around",
         alignItems: "center",
-        backgroundColor: "#232323",
+        backgroundColor: "#323435",
         height: 80,
       }}
     >

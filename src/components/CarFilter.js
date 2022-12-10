@@ -28,6 +28,7 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     color: "#5F5F5F",
+    mt: { sm: 0, xs: 3 },
   },
 };
 
@@ -60,15 +61,20 @@ function CarFilter() {
     <>
       <Box
         sx={{
-          display: "flex",
+          display: { sm: "flex", xs: "block" },
           justifyContent: "space-evenly",
-          width: 1200,
+          width: { sm: 1200, xs: 333 },
+          height: { xs: 440, sm: 139 },
+          alignItems: "center",
+          p: { xs: 2, sm: 0 },
         }}
       >
         <Box
           sx={{
-            width: 200,
-            borderRight: "1px solid #F1F1F1",
+            width: { sm: 200, xs: 333 },
+            height: { xs: 120, sm: 50 },
+            borderRight: { sm: "1px solid #F1F1F1", xs: "none" },
+            borderBottom: { xs: "1px solid #F1F1F1", sm: "none" },
           }}
         >
           <Typography variant="subtitle2">New/ Used</Typography>
@@ -112,8 +118,17 @@ function CarFilter() {
           </Box>
         </Box>
 
-        <Box sx={{ width: 300, borderRight: "1px solid #F1F1F1" }}>
-          <Typography variant="subtitle2">Price Range</Typography>
+        <Box
+          sx={{
+            width: { sm: 300, xs: 333 },
+            height: { xs: 120, sm: 50 },
+            borderRight: { sm: "1px solid #F1F1F1", xs: "none" },
+            borderBottom: { xs: "1px solid #F1F1F1", sm: "none" },
+          }}
+        >
+          <Typography sx={{ mt: { xs: 2, sm: 0 } }} variant="subtitle2">
+            Price Range
+          </Typography>
 
           <Box sx={styles.styleBox}>
             <Typography
@@ -183,8 +198,16 @@ function CarFilter() {
           </Popover>
         </Box>
 
-        <Box sx={{ width: 300 }}>
-          <Typography variant="subtitle2">Vehicle Type</Typography>
+        <Box
+          sx={{
+            width: { sm: 200, xs: 333 },
+            height: { xs: 120, sm: 50 },
+            borderRight: { sm: "1px solid #F1F1F1" },
+          }}
+        >
+          <Typography variant="subtitle2" sx={{ mt: { xs: 2, sm: 0 } }}>
+            Vehicle Type
+          </Typography>
 
           <Box sx={styles.styleBox}>
             <Typography variant="subtitle2" fontWeight={400}>
@@ -253,13 +276,24 @@ function CarFilter() {
           </Popover>
         </Box>
 
-        <Button
-          sx={{ height: 60, width: 140 }}
-          variant="contained"
-          color="error"
+        <Box
+          sx={{
+            position: {
+              xs: "relative",
+              sm: "block",
+            },
+            right: { xs: 15, sm: 0 },
+            bottom: { xs: 15, sm: 0 },
+          }}
         >
-          Search
-        </Button>
+          <Button
+            sx={{ height: 60, width: { sm: 140, xs: 333 } }}
+            variant="contained"
+            color="error"
+          >
+            Search
+          </Button>
+        </Box>
       </Box>
     </>
   );

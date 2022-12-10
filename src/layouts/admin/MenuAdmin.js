@@ -5,9 +5,9 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import SettingsIcon from "@mui/icons-material/Settings";
 
-import Logo from "./Logo";
-import iconCar from "../images/iconcar.png";
-import iconfolder from "../images/iconfolder.png";
+import Logo from "../../components/Logo";
+import iconCar from "../../images/iconcar.png";
+import iconfolder from "../../images/iconfolder.png";
 
 function MenuAdmin() {
   const [menu, setMenu] = useState(false);
