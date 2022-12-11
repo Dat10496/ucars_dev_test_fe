@@ -1,5 +1,6 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import Logo from "../../Logo";
 
 function HeaderBody() {
@@ -22,7 +23,13 @@ function HeaderBody() {
         <Typography>News</Typography>
       </Stack>
 
-      <Button sx={{ width: 150 }} variant="contained" color="error">
+      <Button
+        component={RouterLink}
+        to="/admin"
+        sx={{ width: 150 }}
+        variant="contained"
+        color="error"
+      >
         Login
       </Button>
     </Box>
