@@ -17,6 +17,7 @@ function App() {
             <Route element={<MainLayout />}>
               <Route index element={<HomePage />} />
             </Route>
+
             <Route element={<AdminLayout />}>
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/admin/detail" element={<AdminBrandDetail />} />
