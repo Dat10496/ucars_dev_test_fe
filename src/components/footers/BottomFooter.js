@@ -79,7 +79,7 @@ function BottomFooter() {
   };
   // -------------------
   return (
-    <Box sx={{ height: { sm: 360, xs: 700 }, p: 5 }}>
+    <Box sx={{ height: { sm: 360, xs: 1020 }, p: 5 }}>
       <Stack
         sx={{ alignItems: { sm: "center" } }}
         direction={{ sm: "row", xs: "column" }}
@@ -297,8 +297,15 @@ function BottomFooter() {
         </Box>
         {/* ------------------------------------------------------ */}
 
-        <Box sx={{ width: { xs: 375 } }}>
-          <Typography sx={{ display: "flex" }} variant="body2">
+        <Box
+          sx={{
+            width: { xs: 375 },
+            position: "relative",
+            right: 40,
+            pl: 4,
+          }}
+        >
+          <Typography fontSize={12} sx={{ display: "flex" }} variant="body2">
             Get the{" "}
             <Typography
               component="span"
@@ -306,6 +313,7 @@ function BottomFooter() {
               ml={0.5}
               mr={0.5}
               variant="body2"
+              fontSize={12}
             >
               {" "}
               latest
@@ -313,7 +321,7 @@ function BottomFooter() {
             automotive news sent to your inbox!
           </Typography>
 
-          <Box mt={1}>
+          <Box sx={{ width: { xs: 340 } }} mt={1}>
             <TextField
               size="small"
               variant="outlined"
@@ -370,7 +378,7 @@ function BottomFooter() {
               display: "flex",
               alignItems: "center",
               mt: 1.5,
-              width: { xs: 360, sm: 600 },
+              width: { xs: 330, sm: 600 },
               height: { xs: 50 },
               position: "relative",
               right: { xs: 20, sm: 0 },
@@ -408,7 +416,7 @@ function BottomFooter() {
           </Typography>
         </Box>
       </Box>
-
+      {/* --- media-query------- */}
       <Box
         sx={{
           display: {
@@ -417,12 +425,13 @@ function BottomFooter() {
           },
           backgroundColor: "#232323",
           color: "#FFFF",
-          width: 375,
-          height: 48,
+          width: 380,
+          height: 55,
           position: "relative",
-          right: 40,
+          right: 39,
           justifyContent: "center",
           alignItems: "center",
+          p: -2,
         }}
       >
         {" "}
@@ -430,6 +439,7 @@ function BottomFooter() {
           © 2022. All rights reserved.
         </Typography>
       </Box>
+      {/* ----------------------- */}
     </Box>
   );
 }

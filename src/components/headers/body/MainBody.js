@@ -45,14 +45,14 @@ function MainBody() {
       </Box>
 
       {/* media-query */}
-      <Box sx={{ color: "#FFF", m: 1, display: { xs: "block", sm: "none" } }}>
-        <Box
-          component="img"
-          alt="picture"
-          src={ImgHeader}
-          width="100%"
-          height="100%"
-        />
+      <Box
+        sx={{
+          color: "#FFF",
+          m: 1,
+          display: { xs: "block", sm: "none" },
+        }}
+      >
+        <Box component="img" alt="picture" src={ImgHeader} width="100%" />
         <Box
           sx={{
             position: "relative",

@@ -68,7 +68,7 @@ function Contact() {
           component="img"
           alt="logo"
           src={carBuyerImg}
-          width="120px%"
+          width="120px"
           height="40px"
         />
         <SearchIcon />

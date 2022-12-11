@@ -69,7 +69,7 @@ function BodyFooter() {
           p: { sm: 8, xs: 3 },
         }}
       >
-        <Box sx={{ width: { sm: 450, xs: 375 } }}>
+        <Box sx={{ width: { sm: 450, xs: 375, textAlign: "center" } }}>
           <Typography variant="h4" fontWeight={700} sx={{ color: "#EE1B24" }}>
             Our Featured Vehicles.
           </Typography>

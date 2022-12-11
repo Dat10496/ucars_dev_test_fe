@@ -1,11 +1,11 @@
 import React from "react";
-import { Box, Button, Container, Paper } from "@mui/material";
+import { Box, Button, Paper, Stack } from "@mui/material";
 import CarFilter from "../components/CarFilter";
 import CarListingCard from "../components/CarListingCard";
 
 function HomePage() {
   return (
-    <Container>
+    <Stack>
       <Box name="filter">
         <Paper
           sx={{
@@ -20,7 +20,7 @@ function HomePage() {
           <CarFilter />
         </Paper>
       </Box>
-      <Box name="listing-card-car">
+      <Box p={2} name="listing-card-car">
         <CarListingCard />
       </Box>
 
@@ -37,7 +37,7 @@ function HomePage() {
           View more new cars
         </Button>
       </Box>
-    </Container>
+    </Stack>
   );
 }
 
