@@ -23,7 +23,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { Link as RouterLink } from "react-router-dom";
 
-import { FILTER_BRANDING, CAR_BRANDING_LIST } from "../utils/LabelFilter";
+import { FILTER_BRANDING, CAR_BRANDING_LIST } from "../utils/DataSeed";
 import AddBrand from "../components/admin/AddBrand";
 
 const Search = styled("div")(({ theme }) => ({

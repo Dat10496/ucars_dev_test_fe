@@ -43,7 +43,7 @@ function AddBrand({ handleModalClose }) {
         </Box>
 
         <Button onClick={handleModalClose} sx={{ color: "#232323" }}>
-          <CancelOutlinedIcon sx={{ color: "#E3E3E3" }} />
+          <CancelOutlinedIcon sx={{ color: "#232323" }} />
         </Button>
       </Box>
       <Divider />
@@ -86,14 +86,16 @@ function AddBrand({ handleModalClose }) {
       <Box sx={{ color: "#8C8C8C" }}>
         <Box sx={{ display: "flex", justifyContent: "flex-start", p: 2 }}>
           <Box>
-            <Typography mb={0.5} variant="subtitle1">
+            <Typography mb={0.5} variant="subtitle2" fontWeight={400}>
               Brand Name
             </Typography>
             <TextField size="small" placeholder="Input Content" />
           </Box>
 
           <Box ml={5}>
-            <Typography variant="subtitle1">Brand Status</Typography>
+            <Typography variant="subtitle2" fontWeight={400}>
+              Brand Status
+            </Typography>
             <Box
               sx={{
                 display: "flex",
@@ -183,7 +185,9 @@ function AddBrand({ handleModalClose }) {
             mt: -2,
           }}
         >
-          <Typography variant="subtitle1">Brand Description</Typography>
+          <Typography variant="subtitle2" fontWeight={400}>
+            Brand Description
+          </Typography>
           <TextField
             multiline
             sx={{ width: 552 }}

@@ -6,21 +6,24 @@ import AdminPage from "./pages/AdminPage";
 import AdminLayout from "./layouts/admin/AdminLayout";
 import AdminBrandDetail from "./pages/AdminBrandDetail";
 import AdminBrandEdit from "./pages/AdminBrandEdit";
+import ThemeProvider from "./utils/ThemeProvider";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route element={<MainLayout />}>
-            <Route index element={<HomePage />} />
-          </Route>
-          <Route element={<AdminLayout />}>
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="/admin/detail" element={<AdminBrandDetail />} />
-            <Route path="/admin/edit" element={<AdminBrandEdit />} />
-          </Route>
-        </Routes>
+        <ThemeProvider>
+          <Routes>
+            <Route element={<MainLayout />}>
+              <Route index element={<HomePage />} />
+            </Route>
+            <Route element={<AdminLayout />}>
+              <Route path="/admin" element={<AdminPage />} />
+              <Route path="/admin/detail" element={<AdminBrandDetail />} />
+              <Route path="/admin/edit" element={<AdminBrandEdit />} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
       </BrowserRouter>
     </div>
   );

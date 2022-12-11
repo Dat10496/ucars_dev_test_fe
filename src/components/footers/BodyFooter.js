@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
-import { FEATURES_VEHICLE } from "../../utils/LabelFilter";
+import { Box, Button, Typography } from "@mui/material";
+import { FEATURES_VEHICLE } from "../../utils/DataSeed";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
@@ -172,7 +172,7 @@ function BodyFooter() {
         </Button>
       </Box>
 
-      {/* media-query */}
+      {/*----------------- media-query ---------------- */}
       <Box
         sx={{
           display: { sm: "none", xs: "flex" },
@@ -184,7 +184,7 @@ function BodyFooter() {
           (vehicle) => (
             <Box key={vehicle.id}>
               {vehicle.brand && (
-                <Box key={vehicle.id} width={415} height={361} p={2}>
+                <Box key={vehicle.id} width={375} height={361} p={2}>
                   <Box
                     component="img"
                     src={vehicle.image}
@@ -250,6 +250,7 @@ function BodyFooter() {
           )
         )}
       </Box>
+      {/* ------------------------------------------------ */}
 
       <Box
         sx={{

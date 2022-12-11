@@ -20,7 +20,7 @@ import {
   Typography,
 } from "@mui/material";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
-import { FILTER_CAR, VEHICLE_TYPES } from "../utils/LabelFilter";
+import { FILTER_CAR, VEHICLE_TYPES } from "../utils/DataSeed";
 
 const styles = {
   styleBox: {
@@ -131,14 +131,31 @@ function CarFilter() {
           </Typography>
 
           <Box sx={styles.styleBox}>
-            <Typography
-              variant="subtitle2"
-              fontWeight={400}
-              sx={{ display: "flex", alignItems: "center" }}
+            <Box
+              sx={{
+                width: 220,
+                justifyContent: "space-between",
+                display: "flex",
+              }}
             >
-              <MonetizationOnOutlinedIcon fontSize="small" /> $10,0000 -{" "}
-              <MonetizationOnOutlinedIcon fontSize="small" /> $100,0000
-            </Typography>
+              <Typography
+                sx={{ alignItems: "center", display: "flex" }}
+                variant="subtitle2"
+                fontWeight={400}
+              >
+                <MonetizationOnOutlinedIcon fontSize="small" /> $10,0000
+              </Typography>
+              <Typography variant="subtitle2" fontWeight={400}>
+                -
+              </Typography>
+              <Typography
+                sx={{ alignItems: "center", display: "flex" }}
+                variant="subtitle2"
+                fontWeight={400}
+              >
+                <MonetizationOnOutlinedIcon fontSize="small" /> $100,0000
+              </Typography>
+            </Box>
 
             <Button sx={{ color: "#212121" }} p={0} onClick={handleClickPrice}>
               {rangePrice ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
@@ -240,8 +257,10 @@ function CarFilter() {
               horizontal: "right",
             }}
           >
-            <Stack sx={{ width: 550, height: 420 }}>
-              <Typography>Vehicle Type</Typography>
+            <Stack sx={{ width: { sm: 550, xs: 375 }, height: 400 }}>
+              <Typography variant="subtitle2" fontWeight={600} p={2}>
+                Vehicle Type
+              </Typography>
               <Grid ml={2} container>
                 {VEHICLE_TYPES.map((type) => (
                   <Grid key={type.value} item md={4}>

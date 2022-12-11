@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 import React from "react";
-import { CAR } from "../utils/LabelFilter";
+import { CAR } from "../utils/DataSeed";
 import advertiseImg from "../images/advertise.png";
 
 function CarListingCard() {
