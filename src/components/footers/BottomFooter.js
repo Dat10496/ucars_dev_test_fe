@@ -25,8 +25,7 @@ const styles = {
   styleBoxContact: {
     display: "flex",
     m: 1,
-    position: "relative",
-    right: { xs: 40, sm: 0 },
+    mt: 2,
     width: { xs: 340, sm: 310 },
     alignItems: "center",
   },
@@ -79,7 +78,7 @@ function BottomFooter() {
   };
   // -------------------
   return (
-    <Box sx={{ height: { sm: 360, xs: 1020 }, p: 5 }}>
+    <Box sx={{ maxHeight: { sm: 360, xs: 1000 } }}>
       <Stack
         sx={{ alignItems: { sm: "center" } }}
         direction={{ sm: "row", xs: "column" }}
@@ -91,9 +90,6 @@ function BottomFooter() {
             src={CarBuyerImg}
             sx={{
               height: { xs: 40, sm: "" },
-              position: "relative",
-              right: { xs: 30, sm: 0 },
-              bottom: { xs: 30, sm: 0 },
             }}
           />
 
@@ -179,7 +175,7 @@ function BottomFooter() {
         </Box>
 
         {/*------------- media-query-------------------------------------- */}
-        <Box sx={{ display: { sm: "none", xs: "block" } }}>
+        <Box sx={{ display: { sm: "none", xs: "block" }, p: { sm: 0, xs: 1 } }}>
           <Divider />
           <Box
             sx={{
@@ -300,9 +296,9 @@ function BottomFooter() {
         <Box
           sx={{
             width: { xs: 375 },
-            position: "relative",
-            right: 40,
-            pl: 4,
+            display: { sm: "block", xs: "flex" },
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           <Typography fontSize={12} sx={{ display: "flex" }} variant="body2">
@@ -321,7 +317,12 @@ function BottomFooter() {
             automotive news sent to your inbox!
           </Typography>
 
-          <Box sx={{ width: { xs: 340 } }} mt={1}>
+          <Box
+            sx={{
+              width: { xs: 345 },
+            }}
+            mt={1}
+          >
             <TextField
               size="small"
               variant="outlined"
@@ -336,6 +337,7 @@ function BottomFooter() {
             sx={{
               display: "flex",
               mt: { sm: 2, xs: 3 },
+              ml: { sm: 0, xs: 1 },
               width: { xs: 320 },
             }}
           >
@@ -356,7 +358,6 @@ function BottomFooter() {
           </Box>
         </Box>
       </Stack>
-
       <Box
         sx={{
           borderTop: "1px solid #FAFAFA",
@@ -378,11 +379,7 @@ function BottomFooter() {
               display: "flex",
               alignItems: "center",
               mt: 1.5,
-              width: { xs: 330, sm: 600 },
-              height: { xs: 50 },
-              position: "relative",
-              right: { xs: 20, sm: 0 },
-              justifyContent: { xs: "flex-start" },
+              justifyContent: { xs: "flex-start", sm: "" },
             }}
             component="div"
           >
@@ -410,31 +407,26 @@ function BottomFooter() {
         </Box>
 
         <Box sx={{ display: { sm: "block", xs: "none" } }}>
-          {" "}
           <Typography fontSize={12} variant="subtitle1" color="#8C8C8C">
             © 2022. All rights reserved.
           </Typography>
         </Box>
       </Box>
+
       {/* --- media-query------- */}
       <Box
         sx={{
           display: {
-            xs: "flex",
             sm: "none",
+            xs: "flex",
           },
           backgroundColor: "#232323",
           color: "#FFFF",
-          width: 380,
           height: 55,
-          position: "relative",
-          right: 39,
           justifyContent: "center",
           alignItems: "center",
-          p: -2,
         }}
       >
-        {" "}
         <Typography fontSize={12} variant="subtitle1">
           © 2022. All rights reserved.
         </Typography>

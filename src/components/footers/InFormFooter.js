@@ -9,7 +9,7 @@ function InFormFooter() {
         p: 10,
         color: "#5F5F5F",
         backgroundColor: "#F1F1F1",
-        display: { sm: "block", xs: "none" },
+        display: { sm: "none", xs: "none", md: "block" },
       }}
     >
       <Stack direction="column" spacing={4}>

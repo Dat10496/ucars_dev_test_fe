@@ -9,10 +9,11 @@ const styleBox = {
   color: "#FFF",
 };
 
-const styleBoxQuery = {
+const styleBoxMediaQuery = {
   backgroundImage: `url(${footerQueryImg})`,
   height: 690,
   color: "#FFF",
+  backgroundRepeat: "no-repeat",
 };
 
 function ImageFooter() {
@@ -32,8 +33,11 @@ function ImageFooter() {
 
       {/* media-query */}
       <Box
-        sx={{ display: { xs: "block", sm: "none", color: "#FFFF" } }}
-        style={styleBoxQuery}
+        sx={{
+          m: 1,
+          display: { xs: "block", sm: "none", md: "none", color: "#FFFF" },
+        }}
+        style={styleBoxMediaQuery}
       >
         <Box
           sx={{
