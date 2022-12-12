@@ -43,7 +43,7 @@ function AddBrand({ handleModalClose }) {
         </Box>
 
         <Button onClick={handleModalClose} sx={{ color: "#232323" }}>
-          <CancelOutlinedIcon sx={{ color: "#232323" }} />
+          <CancelOutlinedIcon sx={{ color: "#E3E3E3" }} />
         </Button>
       </Box>
       <Divider />
