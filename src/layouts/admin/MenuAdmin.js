@@ -6,7 +6,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Link as RouterLink } from "react-router-dom";
 
-import iconCar from "../../images/iconCar.png";
+import iconCar from "../../images/iconcar.png";
 import brandLogo from "../../images/brand_logo.png";
 import iconFolder from "../../images/iconfolder.png";
 
