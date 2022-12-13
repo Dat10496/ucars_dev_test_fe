@@ -6,24 +6,16 @@ import advertiseImg from "../images/advertise.png";
 function CarListingCard() {
   return (
     <Box>
-      <Grid container spacing={1.5}>
+      <Grid container columnSpacing={4} rowSpacing={5}>
         <Grid item xs={8} md={4} lg={3}>
-          <Box
-            component="img"
-            src={advertiseImg}
-            height="361px"
-            width="281px"
-          />
+          <Box width={265} height={361}>
+            <Box component="img" src={advertiseImg} width="100%" />
+          </Box>
         </Grid>
         {CAR.map((car) => (
           <Grid key={car.id} item xs={8} md={4} lg={3}>
-            <Card sx={{ width: 281, height: 361 }}>
-              <Box
-                component="img"
-                src={car.image}
-                width="282px"
-                height="189px"
-              />
+            <Card sx={{ width: 261, height: 341 }}>
+              <Box component="img" src={car.image} width="100%" />
 
               <CardContent>
                 <Typography

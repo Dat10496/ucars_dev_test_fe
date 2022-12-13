@@ -16,7 +16,7 @@ function MainHeaderAdmin() {
         height: 64,
         alignItems: "center",
         flexGrow: 1,
-        width: "1026px",
+        minWidth: 1000,
       }}
     >
       <ErrorOutlineIcon fontSize="small" />

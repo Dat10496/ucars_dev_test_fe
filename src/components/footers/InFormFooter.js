@@ -5,23 +5,25 @@ function InFormFooter() {
   return (
     <Box
       sx={{
-        height: 575,
-        p: 10,
+        height: 475,
         color: "#5F5F5F",
         backgroundColor: "#F1F1F1",
-        display: { sm: "none", xs: "none", md: "block" },
+        display: { sm: "none", xs: "none", md: "flex" },
+        justifyContent: "center",
+        alignItems: "center",
+        mt: 8,
       }}
     >
-      <Stack direction="column" spacing={4}>
-        <Typography fontWeight={600}>
+      <Stack sx={{ height: 355, width: 1185 }} direction="column" spacing={4}>
+        <Typography fontWeight={600} fontSize={16}>
           UCARS - Revolutionizing The Online Car Marketplace In Singapore
         </Typography>
 
         <Box>
-          <Typography variant="body2" fontWeight={600}>
+          <Typography fontSize={12} fontWeight={600}>
             Buy Used And New Cars Online
           </Typography>
-          <Typography variant="body2">
+          <Typography fontSize={12} fontWeight={400}>
             Start your car buying journey with UCARS as we connect you
             seamlessly to the industry's best CaseTrust-SVTA accredited car
             dealerships. As a one stop car online portal you can now buy your
@@ -38,10 +40,10 @@ function InFormFooter() {
         </Box>
 
         <Box>
-          <Typography variant="body2" fontWeight={600}>
+          <Typography fontSize={12} fontWeight={600}>
             Sell Your Car In An Instant With Confidence{" "}
           </Typography>
-          <Typography variant="body2">
+          <Typography fontSize={12} fontWeight={400}>
             {" "}
             We all know how selling a car in Singapore can be a daunting task
             especially for a first time car seller; from trying to get a
@@ -57,11 +59,11 @@ function InFormFooter() {
         </Box>
 
         <Box>
-          <Typography variant="body2" fontWeight={600}>
+          <Typography fontSize={12} fontWeight={600}>
             {" "}
             The Ultimate Car Shopping Experience Online
           </Typography>
-          <Typography variant="body2">
+          <Typography fontSize={12} fontWeight={400}>
             UCARS platform is the first of its kind to be backed by Huawei's
             Artificial Intelligence and cloud computing, enabling it to be able
             to offer users transparency and enhanced security, all with the one

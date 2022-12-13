@@ -6,60 +6,91 @@ import footerQueryImg from "../../images/footer_queryImg.png";
 const styleBox = {
   backgroundImage: `url(${footerImg})`,
   height: 700,
-  color: "#FFF",
+  backgroundRepeat: "no-repeat",
+  color: "#FFFFFF",
 };
 
 const styleBoxMediaQuery = {
   backgroundImage: `url(${footerQueryImg})`,
-  height: 690,
-  color: "#FFF",
+  height: 700,
+  color: "#FFFFFF",
   backgroundRepeat: "no-repeat",
+  maxWidth: 600,
 };
 
 function ImageFooter() {
   return (
     <>
       <Box sx={{ display: { sm: "block", xs: "none" } }} style={styleBox}>
-        <Box sx={{ width: 300, position: "relative", left: 100, top: 150 }}>
-          <Typography fontWeight={600} variant="h2">
+        <Box
+          sx={{
+            width: 390,
+            height: 456,
+            position: "relative",
+            left: 100,
+            top: 100,
+          }}
+        >
+          <Typography fontWeight={600} fontSize={76}>
             Questions about buying or renting?
           </Typography>
 
-          <Button sx={{ width: 300, mt: 3 }} variant="contained" color="error">
-            Ask Us
+          <Button
+            sx={{ width: 410, height: 60, mt: 3 }}
+            variant="contained"
+            color="error"
+          >
+            <Typography fontSize={16} fontWeight={600}>
+              Ask Us
+            </Typography>
           </Button>
         </Box>
       </Box>
 
-      {/* media-query */}
+      {/* ------------------ media-query ------------------------ */}
       <Box
         sx={{
-          m: 1,
-          display: { xs: "block", sm: "none", md: "none", color: "#FFFF" },
+          display: { xs: "flex", sm: "none", md: "none", color: "#FFFF" },
+          height: 694,
+          justifyContent: "center",
         }}
         style={styleBoxMediaQuery}
       >
         <Box
           sx={{
-            width: 300,
-            position: "relative",
-            left: 50,
-            top: 50,
+            textAlign: "center",
             display: "flex",
-            justifyContent: "space-between",
             flexDirection: "column",
-            height: 550,
+            alignItems: "center",
           }}
         >
-          <Typography fontWeight={600} variant="h2">
-            Questions about buying or renting?
-          </Typography>
+          <Box
+            sx={{
+              width: 246,
+              position: "relative",
+              top: 80,
+              height: 288,
+            }}
+          >
+            <Typography fontWeight={600} fontSize={48}>
+              Questions about buying or renting?
+            </Typography>
+          </Box>
 
-          <Button sx={{ width: 300, mt: 3 }} variant="contained" color="error">
-            Ask Us
-          </Button>
+          <Box sx={{ position: "relative", top: 260 }}>
+            <Button
+              sx={{ width: 335, height: 60, mt: 3 }}
+              variant="contained"
+              color="error"
+            >
+              <Typography fontWeight={600} fontSize={16}>
+                Ask Us
+              </Typography>
+            </Button>
+          </Box>
         </Box>
       </Box>
+      {/* ------------------------------ */}
     </>
   );
 }

@@ -21,14 +21,14 @@ function AdminBrandDetail() {
           >
             <ArrowBackIosNewIcon fontSize="small" />
           </Button>
-          <Typography variant="h6" fontWeight={600}>
+          <Typography fontSize={24} fontWeight={600}>
             Brand Details
           </Typography>
         </Box>
       </Box>
 
       <Box sx={{ pl: 2, width: 552, p: 2 }}>
-        <Typography mb={1} variant="subtitle2" fontWeight={600}>
+        <Typography mb={1} fontSize={14} fontWeight={600}>
           Brand Logo
         </Typography>
         <Divider sx={{ mb: 2 }} />
@@ -48,6 +48,9 @@ function AdminBrandDetail() {
             position: "relative",
             left: 20,
             top: 10,
+            "&: hover": {
+              cursor: "pointer",
+            },
           }}
         >
           <Box component="img" alt="logo" src={logoImg} />
@@ -55,7 +58,7 @@ function AdminBrandDetail() {
       </Box>
 
       <Box sx={{ color: "#8C8C8C", width: 552, p: 3 }}>
-        <Typography mb={1} variant="subtitle2" color="#232323" fontWeight={600}>
+        <Typography mb={1} fontSize={14} color="#232323" fontWeight={600}>
           Brand Details
         </Typography>
         <Divider />
@@ -68,25 +71,22 @@ function AdminBrandDetail() {
           }}
         >
           <Box width={240} mr={2}>
-            <Typography mb={0.5} variant="subtitle2" fontWeight={400}>
+            <Typography mb={0.5} fontSize={14} fontWeight={400}>
               Brand Name
             </Typography>
-            <Typography fontWeight={600} color="#232323" variant="subtitle1">
+            <Typography fontWeight={600} color="#232323" fontSize={14}>
               UCARS PTE LTD
             </Typography>
           </Box>
 
           <Box ml={5}>
-            <Typography variant="subtitle2" fontWeight={400}>
+            <Typography fontSize={14} fontWeight={400}>
               Brand Status
             </Typography>
             <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
-                "&: hover": {
-                  cursor: "pointer",
-                },
                 mt: 1,
                 backgroundColor: "#CEF7E2",
                 color: "#1F7B4D ",
@@ -106,14 +106,13 @@ function AdminBrandDetail() {
           sx={{
             display: "flex",
             justifyContent: "flex-start",
-
             flexDirection: "column",
           }}
         >
-          <Typography variant="subtitle2" fontWeight={400}>
+          <Typography mb={0.5} fontSize={14} fontWeight={400}>
             Brand Description
           </Typography>
-          <Typography fontWeight={600} color="#232323" variant="subtitle2">
+          <Typography fontWeight={600} color="#232323" fontSize={14}>
             Ucars brand description
           </Typography>
         </Box>
@@ -125,6 +124,8 @@ function AdminBrandDetail() {
           to="/admin/edit"
           size="small"
           variant="contained"
+          sx={{ width: 145, height: 40 }}
+          color="primary"
         >
           Edit Information
         </Button>

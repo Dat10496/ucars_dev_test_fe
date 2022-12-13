@@ -7,7 +7,7 @@ import MainHeaderAdmin from "./MainHeaderAdmin";
 function AdminLayout() {
   return (
     <Stack
-      sx={{ minHeight: "100vh", justifyContent: "space-evenly" }}
+      sx={{ minHeight: "100vh", justifyContent: "space-between" }}
       direction="row"
     >
       <MenuAdmin />

@@ -1,17 +1,24 @@
 import React from "react";
-import { Box, Button, Paper, Stack } from "@mui/material";
+import { Box, Button, Paper, Stack, Typography } from "@mui/material";
 import CarFilter from "../components/CarFilter";
 import CarListingCard from "../components/CarListingCard";
 
 function HomePage() {
   return (
     <Stack>
-      <Box name="filter">
+      <Box
+        name="filter"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Paper
           sx={{
             position: "relative",
-            bottom: { sm: "70px", xs: "120px" },
+            bottom: { sm: 70, xs: 90 },
             height: { sm: 140, xs: 480 },
+            width: { sm: 1142, xs: 343 },
             alignItems: "center",
             display: "flex",
             justifyContent: "center",
@@ -20,7 +27,16 @@ function HomePage() {
           <CarFilter />
         </Paper>
       </Box>
-      <Box p={2} name="listing-card-car">
+
+      <Box
+        sx={{
+          width: { sm: 1142, xs: 300 },
+          height: { sm: 746 },
+          position: "relative",
+          left: 62,
+        }}
+        name="listing-card-car"
+      >
         <CarListingCard />
       </Box>
 
@@ -33,8 +49,14 @@ function HomePage() {
           color: "#EE1B24",
         }}
       >
-        <Button color="error" variant="outlined">
-          View more new cars
+        <Button
+          sx={{ width: 194, height: 40 }}
+          color="error"
+          variant="outlined"
+        >
+          <Typography fontWeight={500} fontSize={12}>
+            View more new cars
+          </Typography>
         </Button>
       </Box>
     </Stack>

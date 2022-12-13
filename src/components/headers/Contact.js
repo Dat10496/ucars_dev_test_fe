@@ -22,10 +22,12 @@ function Contact() {
             <PinDropIcon />
 
             <Box sx={{ ml: 2, width: 287, height: 40 }}>
-              <Typography variant="body2">
+              <Typography fontWeight={400} fontSize={12}>
                 71 Ayer Rajah Crescent, #06-14,
               </Typography>
-              <Typography variant="body2">Singapore 139951</Typography>
+              <Typography fontWeight={400} fontSize={12}>
+                Singapore 139951
+              </Typography>
             </Box>
           </Box>
 
@@ -33,8 +35,13 @@ function Contact() {
             <EmailIcon />
 
             <Box sx={{ ml: 2, width: 287, height: 40 }}>
-              <Typography variant="body2">Email us at:</Typography>
-              <Typography variant="body2"> hello@carbuyer.com.sg</Typography>
+              <Typography fontWeight={400} fontSize={12}>
+                Email us at:
+              </Typography>
+              <Typography fontWeight={400} fontSize={12}>
+                {" "}
+                hello@carbuyer.com.sg
+              </Typography>
             </Box>
           </Box>
         </Box>
@@ -43,10 +50,10 @@ function Contact() {
           <LocalPhoneIcon />
 
           <Box ml={1}>
-            <Typography fontWeight={500} variant="body1">
+            <Typography fontWeight={500} fontSize={14} color="#232323">
               +65 8808 7905
             </Typography>
-            <Typography fontWeight={500} variant="body1">
+            <Typography fontWeight={500} fontSize={14} color="#232323">
               +7 (700) 51 51 518
             </Typography>
           </Box>
@@ -60,18 +67,22 @@ function Contact() {
           width: 375,
           height: 64,
           alignItems: "center",
-          justifyContent: "space-between",
-          p: 1,
+          justifyContent: "center",
         }}
       >
         <Box
-          component="img"
-          alt="logo"
-          src={carBuyerImg}
-          width="120px"
-          height="40px"
-        />
-        <SearchIcon />
+          width={343}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Box width={120} height={40}>
+            <Box component="img" alt="logo" src={carBuyerImg} width="1005" />
+          </Box>
+          <SearchIcon />
+        </Box>
       </Box>
     </>
   );

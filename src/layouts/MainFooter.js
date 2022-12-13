@@ -8,7 +8,7 @@ import { Box } from "@mui/material";
 
 function MainFooter() {
   return (
-    <Box position="static" mt={2}>
+    <Box mt={2}>
       <HeaderFooter />
       <BodyFooter />
       <ImageFooter />

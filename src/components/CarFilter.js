@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -23,12 +22,21 @@ import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlin
 import { FILTER_CAR, VEHICLE_TYPES } from "../utils/DataSeed";
 
 const styles = {
-  styleBox: {
+  styleBoxInside: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     color: "#5F5F5F",
     mt: { sm: 0, xs: 3 },
+  },
+  styleBoxOutside: {
+    width: { sm: 211, xs: 300 },
+    height: { xs: 120, sm: 89 },
+    borderRight: { sm: "1px solid #F1F1F1", xs: "none" },
+    borderBottom: { sm: "none", xs: "1px solid #F1F1F1" },
+    display: { sm: "flex", xs: "block" },
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
 };
 
@@ -37,17 +45,27 @@ function CarFilter() {
   const [rangePrice, setRangePrice] = useState(null);
   const [vehicleType, setVehicleType] = useState(null);
 
+  const [valueCar, setValueCar] = useState("New Cars");
+  const [priceMin, setPriceMin] = useState("");
+  const [priceMax, setPriceMax] = useState("");
+
   const handleClickCar = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleCloseCar = (value) => {
+
+  const handleCloseCar = (option) => {
     setAnchorEl(null);
+    if (!option.value) {
+      setValueCar("New Cars");
+    } else {
+      setValueCar(option.value);
+    }
   };
 
   const handleClickPrice = (event) => {
     setRangePrice(event.currentTarget);
   };
-  const handleClosePrice = (value) => {
+  const handleClosePrice = (event) => {
     setRangePrice(null);
   };
 
@@ -57,37 +75,39 @@ function CarFilter() {
   const handleCloseVehicleType = (value) => {
     setVehicleType(null);
   };
+
+  const handleGetPriceMin = (event) => {
+    setPriceMin(event.currentTarget.value.replace("S$ ", ""));
+  };
+  const handleGetPriceMax = (event) => {
+    setPriceMax(event.currentTarget.value.replace("S$ ", ""));
+  };
   return (
     <>
       <Box
         sx={{
-          display: { sm: "flex", xs: "block" },
-          justifyContent: "space-evenly",
-          width: { sm: 1200, xs: 333 },
-          height: { xs: 440, sm: 139 },
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          justifyContent: { sm: "space-evenly", xs: "space-between" },
+          width: { sm: 1142, xs: 333 },
+          height: { xs: 460, sm: 139 },
           alignItems: "center",
-          p: { xs: 2, sm: 0 },
         }}
       >
-        <Box
-          sx={{
-            width: { sm: 200, xs: 333 },
-            height: { xs: 120, sm: 50 },
-            borderRight: { sm: "1px solid #F1F1F1", xs: "none" },
-            borderBottom: { xs: "1px solid #F1F1F1", sm: "none" },
-          }}
-        >
-          <Typography variant="subtitle2">New/ Used</Typography>
+        <Box sx={styles.styleBoxOutside}>
+          <Typography fontWeight={500} fontSize={16}>
+            New/ Used
+          </Typography>
 
-          <Box sx={styles.styleBox}>
-            <Typography fontWeight={400} variant="subtitle2">
-              New Cars
+          <Box sx={styles.styleBoxInside}>
+            <Typography fontWeight={400} fontSize={14}>
+              {valueCar}
             </Typography>
             <Button sx={{ color: "#212121" }} p={0} onClick={handleClickCar}>
               {anchorEl ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </Button>
 
-            <Menu
+            <Popover
               anchorOrigin={{
                 vertical: "bottom",
                 horizontal: "right",
@@ -100,37 +120,44 @@ function CarFilter() {
               open={Boolean(anchorEl)}
               onClose={handleCloseCar}
             >
-              <MenuItem>
-                <FormControl>
-                  <RadioGroup>
-                    {FILTER_CAR.map((option) => (
+              <FormControl>
+                <RadioGroup>
+                  {FILTER_CAR.map((option) => (
+                    <MenuItem key={option.value}>
                       <FormControlLabel
-                        key={option.value}
+                        onClick={() => handleCloseCar(option)}
                         value={option.value}
                         control={<Radio />}
                         label={option.label}
                       />
-                    ))}
-                  </RadioGroup>
-                </FormControl>
-              </MenuItem>
-            </Menu>
+                    </MenuItem>
+                  ))}
+                </RadioGroup>
+              </FormControl>
+            </Popover>
           </Box>
         </Box>
 
         <Box
           sx={{
-            width: { sm: 300, xs: 333 },
-            height: { xs: 120, sm: 50 },
+            width: { sm: 333, xs: 303 },
+            height: { xs: 120, sm: 89 },
             borderRight: { sm: "1px solid #F1F1F1", xs: "none" },
+            display: { sm: "flex", xs: "block" },
+            flexDirection: "column",
+            justifyContent: "space-between",
             borderBottom: { xs: "1px solid #F1F1F1", sm: "none" },
           }}
         >
-          <Typography sx={{ mt: { xs: 2, sm: 0 } }} variant="subtitle2">
+          <Typography
+            sx={{ mt: { xs: 2, sm: 0 } }}
+            fontWeight={500}
+            fontSize={16}
+          >
             Price Range
           </Typography>
 
-          <Box sx={styles.styleBox}>
+          <Box sx={styles.styleBoxInside}>
             <Box
               sx={{
                 width: 220,
@@ -140,20 +167,22 @@ function CarFilter() {
             >
               <Typography
                 sx={{ alignItems: "center", display: "flex" }}
-                variant="subtitle2"
                 fontWeight={400}
+                fontSize={14}
               >
-                <MonetizationOnOutlinedIcon fontSize="small" /> $10,0000
+                <MonetizationOnOutlinedIcon fontSize="small" />{" "}
+                {priceMin ? priceMin : "$10,0000"}
               </Typography>
-              <Typography variant="subtitle2" fontWeight={400}>
+              <Typography fontWeight={400} fontSize={14}>
                 -
               </Typography>
               <Typography
                 sx={{ alignItems: "center", display: "flex" }}
-                variant="subtitle2"
                 fontWeight={400}
+                fontSize={14}
               >
-                <MonetizationOnOutlinedIcon fontSize="small" /> $100,0000
+                <MonetizationOnOutlinedIcon fontSize="small" />{" "}
+                {priceMax ? priceMax : "$100,0000"}
               </Typography>
             </Box>
 
@@ -175,7 +204,7 @@ function CarFilter() {
             }}
           >
             <Stack sx={{ width: 400, height: 220 }} spacing={2}>
-              <Typography variant="subtitle2" sx={{ p: 2 }}>
+              <Typography fontStyle={16} fontWeight={600} sx={{ p: 2 }}>
                 Price Range
               </Typography>
               <Box
@@ -183,16 +212,19 @@ function CarFilter() {
                   display: "flex",
                   justifyContent: "space-evenly",
                   alignItems: "center",
+                  width: { sm: 400, xs: 320 },
                 }}
               >
                 <TextField
-                  sx={{ width: 160 }}
+                  onChange={handleGetPriceMin}
+                  sx={{ width: { sm: 160, xs: 120 } }}
                   label="Min"
                   defaultValue="S$ 20,000"
                 />
                 {" - "}
                 <TextField
-                  sx={{ width: 160 }}
+                  onChange={handleGetPriceMax}
+                  sx={{ width: { sm: 160, xs: 120 } }}
                   label="Max"
                   defaultValue="S$ 500,000"
                 />
@@ -204,10 +236,23 @@ function CarFilter() {
                   justifyContent: "space-between",
                   alignItems: "center",
                   p: 1,
+                  width: { sm: 400, xs: 320 },
                 }}
               >
-                <Button sx={{ color: "#B4B4B4", ml: 1 }}>Clear</Button>
-                <Button sx={{ mr: 1 }} variant="contained" color="error">
+                <Button
+                  onClick={handleClosePrice}
+                  sx={{ color: "#B4B4B4", ml: 1 }}
+                >
+                  <Typography fontSize={16} fontWeight={600}>
+                    Clear
+                  </Typography>
+                </Button>
+                <Button
+                  onClick={handleClosePrice}
+                  sx={{ mr: 1, width: 73, height: 40 }}
+                  variant="contained"
+                  color="error"
+                >
                   Save
                 </Button>
               </Box>
@@ -215,19 +260,17 @@ function CarFilter() {
           </Popover>
         </Box>
 
-        <Box
-          sx={{
-            width: { sm: 200, xs: 333 },
-            height: { xs: 120, sm: 50 },
-            borderRight: { sm: "1px solid #F1F1F1" },
-          }}
-        >
-          <Typography variant="subtitle2" sx={{ mt: { xs: 2, sm: 0 } }}>
+        <Box sx={styles.styleBoxOutside}>
+          <Typography
+            fontStyle={16}
+            fontWeight={500}
+            sx={{ mt: { xs: 2, sm: 0 } }}
+          >
             Vehicle Type
           </Typography>
 
-          <Box sx={styles.styleBox}>
-            <Typography variant="subtitle2" fontWeight={400}>
+          <Box sx={styles.styleBoxInside}>
+            <Typography fontWeight={400} fontSize={14}>
               +10 More
             </Typography>
 
@@ -257,37 +300,53 @@ function CarFilter() {
               horizontal: "right",
             }}
           >
-            <Stack sx={{ width: { sm: 550, xs: 375 }, height: 400 }}>
-              <Typography variant="subtitle2" fontWeight={600} p={2}>
+            <Stack sx={{ width: { sm: 473, xs: 375 }, height: 350 }}>
+              <Typography fontStyle={16} fontWeight={600} p={2}>
                 Vehicle Type
               </Typography>
               <Grid ml={2} container>
                 {VEHICLE_TYPES.map((type) => (
-                  <Grid key={type.value} item md={4}>
-                    <Box component="div" sx={{ width: 170, height: 50 }}>
-                      <FormGroup key={type.value}>
-                        <FormControlLabel
-                          value={type.value}
-                          control={<Checkbox />}
-                          label={type.label}
-                        />
-                      </FormGroup>
-                    </Box>
+                  <Grid key={type.value} item md={4} xs={5}>
+                    <FormGroup key={type.value}>
+                      <FormControlLabel
+                        value={type.value}
+                        control={<Checkbox />}
+                        label={
+                          <Typography fontSize={12} fontWeight={400}>
+                            {type.label}
+                          </Typography>
+                        }
+                      />
+                    </FormGroup>
                   </Grid>
                 ))}
               </Grid>
 
-              <Divider sx={{ mt: 3, mb: 2 }} variant="middle" />
+              <Divider variant="middle" />
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
                   p: 1,
+                  mt: { sm: 2, xs: 0 },
+                  width: { xs: 320, sm: 473 },
                 }}
               >
-                <Button sx={{ color: "#B4B4B4", ml: 1 }}>Clear</Button>
-                <Button sx={{ mr: 1 }} variant="contained" color="error">
+                <Button
+                  onClick={handleCloseVehicleType}
+                  sx={{ color: "#B4B4B4", ml: 1 }}
+                >
+                  <Typography fontSize={16} fontWeight={600}>
+                    Clear
+                  </Typography>
+                </Button>
+                <Button
+                  onClick={handleCloseVehicleType}
+                  sx={{ mr: 1, width: 73, height: 40 }}
+                  variant="contained"
+                  color="error"
+                >
                   Save
                 </Button>
               </Box>
@@ -295,24 +354,13 @@ function CarFilter() {
           </Popover>
         </Box>
 
-        <Box
-          sx={{
-            position: {
-              xs: "relative",
-              sm: "block",
-            },
-            right: { xs: 15, sm: 0 },
-            bottom: { xs: 15, sm: 0 },
-          }}
+        <Button
+          sx={{ height: 60, width: { sm: 140, xs: 333 } }}
+          variant="contained"
+          color="error"
         >
-          <Button
-            sx={{ height: 60, width: { sm: 140, xs: 333 } }}
-            variant="contained"
-            color="error"
-          >
-            Search
-          </Button>
-        </Box>
+          Search
+        </Button>
       </Box>
     </>
   );

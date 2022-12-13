@@ -105,8 +105,15 @@ function AdminPage() {
   }, [searchQuery]);
   return (
     <Stack>
-      <Box name="page">
-        <Box sx={{ display: "flex", justifyContent: "space-between", p: 2 }}>
+      <Box name="page" sx={{ mr: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            mb: 2,
+            mt: 2,
+          }}
+        >
           <Box
             sx={{
               display: "flex",
@@ -115,11 +122,22 @@ function AdminPage() {
               width: 700,
             }}
           >
-            <Typography variant="h6" fontWeight={600} sx={{ color: "#2F465F" }}>
+            <Typography
+              fontSize={24}
+              fontWeight={600}
+              sx={{ color: "#2F465F" }}
+            >
               CAR BRANDS LIST
             </Typography>
 
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box
+              width={119}
+              height={40}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
               <Button
                 size="small"
                 sx={{ color: "#212121" }}
@@ -128,7 +146,9 @@ function AdminPage() {
               >
                 {anchorEl ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
               </Button>
-              <Typography variant="subtitle2">View All</Typography>
+              <Typography fontWeight={500} fontSize={14}>
+                View All
+              </Typography>
             </Box>
 
             <Menu
@@ -165,7 +185,11 @@ function AdminPage() {
           </Box>
 
           <Box>
-            <Button onClick={handleModalOpen} variant="contained">
+            <Button
+              onClick={handleModalOpen}
+              variant="contained"
+              color="primary"
+            >
               + Add Brand
             </Button>
           </Box>
@@ -183,37 +207,37 @@ function AdminPage() {
               {resultQuery.map((car) => (
                 <TableRow
                   key={car.brand}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  sx={{
+                    "&:last-child td, &:last-child th": { border: 0 },
+                  }}
                 >
                   <TableCell component="th" scope="row">
                     <Box
                       sx={{
                         borderRight: `${
                           car.status === "Active"
-                            ? "1px solid #5F5F5F"
-                            : "1px solid #0FC97B"
+                            ? "1px solid #0FC97B"
+                            : "1px solid #5F5F5F"
                         }`,
                         display: "flex",
                         justifyContent: "space-around",
+                        pr: 2,
                       }}
                     >
                       <Radio />
-                      <Box
-                        component="img"
-                        height="40px"
-                        width="40px"
-                        src={car.logo}
-                        pr={0.5}
-                      />
+                      <Box width={64} height={64}>
+                        <Box
+                          component="img"
+                          width="100%"
+                          src={car.logo}
+                          pr={0.5}
+                        />
+                      </Box>
                     </Box>
                   </TableCell>
 
                   <TableCell component="th" scope="row">
-                    <Typography
-                      color="#2F465F"
-                      fontWeight={500}
-                      variant="body2"
-                    >
+                    <Typography color="#2F465F" fontWeight={500} fontSize={20}>
                       {car.brand}
                     </Typography>
                     <Box
@@ -225,9 +249,9 @@ function AdminPage() {
                       }}
                     >
                       <Typography
-                        fontSize={12}
+                        fontSize={14}
                         color="#8C8C8C"
-                        variant="caption text"
+                        fontWeight={400}
                       >
                         {car.description} |
                         <Typography
@@ -252,19 +276,17 @@ function AdminPage() {
                       }}
                     >
                       <Typography
-                        fontSize={12}
+                        fontSize={14}
                         fontWeight={500}
                         color="#2F465F"
-                        variant="caption text"
                         mb={1}
                       >
                         Last Update
                       </Typography>
                       <Typography
-                        fontSize={12}
+                        fontSize={14}
                         fontWeight={400}
                         color="#8C8C8C"
-                        variant="caption text"
                       >
                         {car.updateAt}
                       </Typography>
@@ -274,16 +296,18 @@ function AdminPage() {
                   <TableCell>
                     <Box
                       sx={{
-                        width: 80,
+                        width: 111,
+                        height: 40,
                         display: "flex",
+                        justifyContent: "center",
                         alignItems: "center",
                         backgroundColor: "#FAFAFA",
                         color: `${
-                          car.status === "Active" ? "#5F5F5F" : "#1F7B4D"
+                          car.status === "Active" ? "#1F7B4D" : "#5F5F5F"
                         }`,
                       }}
                     >
-                      <FiberManualRecordIcon />
+                      <FiberManualRecordIcon fontSize="small" />
                       {car.status}
                     </Box>
                   </TableCell>
@@ -293,10 +317,12 @@ function AdminPage() {
                       component={RouterLink}
                       to="/admin/detail"
                       size="small"
-                      variant="outlined"
-                      color="inherit"
+                      color="second"
+                      sx={{ border: "1px solid #B4B4B4" }}
                     >
-                      View Details
+                      <Typography fontWeight={500} fontSize={14}>
+                        View Details
+                      </Typography>
                     </Button>
                   </TableCell>
                 </TableRow>

@@ -34,22 +34,22 @@ function AddBrand({ handleModalClose }) {
         }}
       >
         <Box>
-          <Typography fontWeight={600} variant="subtitle1">
+          <Typography fontWeight={600} fontSize={16}>
             Add Car Brand
           </Typography>
-          <Typography variant="subtitle2" color="#5F5F5F" fontWeight={400}>
+          <Typography fontSize={14} color="#5F5F5F" fontWeight={400}>
             Setup new car brand
           </Typography>
         </Box>
 
         <Button onClick={handleModalClose} sx={{ color: "#232323" }}>
-          <CancelOutlinedIcon sx={{ color: "#E3E3E3" }} />
+          <CancelOutlinedIcon color="second" />
         </Button>
       </Box>
       <Divider />
 
       <Box mt={2} p={2} height={48}>
-        <Typography variant="subtitle1" fontWeight={600}>
+        <Typography fontSize={14} fontWeight={600}>
           Brand Logo
         </Typography>
       </Box>
@@ -60,8 +60,8 @@ function AddBrand({ handleModalClose }) {
           sx={{
             width: 100,
             height: 100,
-            backgroundColor: "#E3E3E3",
-            border: "1px solid #E3E3E3",
+            backgroundColor: "#FAFAFA",
+            border: "1px dashed  #E3E3E3",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -72,12 +72,13 @@ function AddBrand({ handleModalClose }) {
           }}
         >
           <Typography>+</Typography>
-          <Typography variant="subtitle1" color="#8C8C8C">
+
+          <Typography fontWeight={500} fontSize={12} color="#8C8C8C">
             Brand Logo
           </Typography>
         </Box>
 
-        <Typography variant="subtitle1" fontWeight={600}>
+        <Typography fontSize={14} fontWeight={600}>
           Brand Details
         </Typography>
       </Box>
@@ -86,14 +87,14 @@ function AddBrand({ handleModalClose }) {
       <Box sx={{ color: "#8C8C8C" }}>
         <Box sx={{ display: "flex", justifyContent: "flex-start", p: 2 }}>
           <Box>
-            <Typography mb={0.5} variant="subtitle2" fontWeight={400}>
+            <Typography mb={0.5} fontSize={14} fontWeight={400}>
               Brand Name
             </Typography>
             <TextField size="small" placeholder="Input Content" />
           </Box>
 
           <Box ml={5}>
-            <Typography variant="subtitle2" fontWeight={400}>
+            <Typography fontSize={14} fontWeight={400}>
               Brand Status
             </Typography>
             <Box
@@ -106,17 +107,18 @@ function AddBrand({ handleModalClose }) {
                 mt: 1,
                 backgroundColor: "#CEF7E2",
                 color: "#1F7B4D ",
-                width: 131,
+                width: 99,
                 height: 34,
                 borderRadius: 5,
                 justifyContent: "space-evenly",
               }}
               onClick={handleClick}
             >
-              <AdjustRoundedIcon />
+              <AdjustRoundedIcon fontSize="small" />
               <Typography variant="subtitle2">Active</Typography>
-              <KeyboardArrowDownIcon />
+              <KeyboardArrowDownIcon color="second" />
             </Box>
+
             <Popover
               open={Boolean(anchorEl)}
               anchorEl={anchorEl}
@@ -129,6 +131,7 @@ function AddBrand({ handleModalClose }) {
               <Box
                 sx={{
                   width: 150,
+                  height: 104,
                   p: 1,
                 }}
               >
@@ -185,7 +188,7 @@ function AddBrand({ handleModalClose }) {
             mt: -2,
           }}
         >
-          <Typography variant="subtitle2" fontWeight={400}>
+          <Typography fontSize={14} fontWeight={400}>
             Brand Description
           </Typography>
           <TextField
@@ -201,18 +204,33 @@ function AddBrand({ handleModalClose }) {
             display: "flex",
             justifyContent: "flex-end",
             width: 570,
-            mt: -1,
           }}
         >
           <Button
-            sx={{ color: "#232323", mr: 2 }}
-            variant="outlined"
+            sx={{
+              color: "#232323",
+              mr: 2,
+              border: "0.5px solid #B4B4B4",
+              width: 83,
+              height: 40,
+            }}
             color="inherit"
             onClick={handleModalClose}
           >
-            Cancel
+            <Typography fontWeight={500} fontSize={14}>
+              Cancel
+            </Typography>
           </Button>
-          <Button variant="contained">Create Brand</Button>
+          <Button
+            sx={{ width: 137, height: 40 }}
+            variant="contained"
+            color="primary"
+            onClick={handleModalClose}
+          >
+            <Typography fontWeight={500} fontSize={14}>
+              Create Brand
+            </Typography>
+          </Button>
         </Box>
       </Box>
     </>

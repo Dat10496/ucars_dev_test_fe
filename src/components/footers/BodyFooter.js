@@ -59,7 +59,7 @@ function BodyFooter() {
   //--------------------------------------------
 
   return (
-    <Box sx={{ height: 600 }}>
+    <Box sx={{ height: 637, width: { sm: 1242, xs: 375 }, mb: 10 }}>
       <Box
         sx={{
           display: "flex",
@@ -69,11 +69,23 @@ function BodyFooter() {
           p: { sm: 8, xs: 3 },
         }}
       >
-        <Box sx={{ width: { sm: 450, xs: 375, textAlign: "center" } }}>
-          <Typography variant="h4" fontWeight={700} sx={{ color: "#EE1B24" }}>
+        <Box
+          sx={{
+            width: { sm: 678, xs: 375 },
+            height: {
+              sm: 167,
+            },
+            textAlign: { xs: "center", sm: "left" },
+          }}
+        >
+          <Typography
+            fontSize={{ sm: 48, xs: 32 }}
+            fontWeight={700}
+            sx={{ color: "#EE1B24" }}
+          >
             Our Featured Vehicles.
           </Typography>
-          <Typography variant="body1" mt={3}>
+          <Typography fontWeight={400} fontSize={{ sm: 32, xs: 20 }}>
             One of our biggest product to be featured and that has sold out the
             most.
           </Typography>
@@ -81,17 +93,23 @@ function BodyFooter() {
 
         <Box
           sx={{
-            display: "flex",
             justifyContent: "flex-end",
             flexDirection: "column",
+            height: 167,
+            display: { sm: "flex", xs: "none" },
           }}
         >
           <Button
-            sx={{ height: 30, display: { sm: "block", xs: "none" } }}
+            sx={{
+              width: 179,
+              height: 40,
+            }}
             color="error"
             variant="contained"
           >
-            View More
+            <Typography fontWeight={600} fontSize={13}>
+              View More
+            </Typography>
           </Button>
         </Box>
       </Box>

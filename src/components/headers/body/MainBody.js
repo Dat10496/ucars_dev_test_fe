@@ -19,26 +19,30 @@ function MainBody() {
       >
         <Box
           sx={{
-            position: "absolute",
+            position: "relative",
             width: 540,
             height: 220,
-            left: 100,
-            top: 246,
+            left: 108,
+            top: 97,
             gap: 3,
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
           }}
         >
-          <Typography fontWeight={700} variant="h2">
+          <Typography fontWeight={700} fontSize={60}>
             Car Marketplace
           </Typography>
-          <Typography varian="subtitle1">
+          <Typography fontWeight={400} fontSize={18}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc odio
             in et, lectus sit lorem id integer.
           </Typography>
 
-          <Button variant="contained" color="error">
+          <Button
+            sx={{ width: 196, height: 52 }}
+            variant="contained"
+            color="error"
+          >
             Get Stared
           </Button>
         </Box>
@@ -48,39 +52,53 @@ function MainBody() {
       <Box
         sx={{
           color: "#FFF",
-          m: 1,
-          display: { xs: "block", sm: "none" },
+          alignItems: "center",
+          flexDirection: "column",
+          display: { xs: "flex", sm: "none" },
+          height: 250,
+          pt: 1,
         }}
       >
-        <Box component="img" alt="picture" src={ImgHeader} width="100%" />
+        <Box width={343} height={142}>
+          <Box
+            sx={{ borderRadius: 2 }}
+            component="img"
+            alt="picture"
+            src={ImgHeader}
+            width="100%"
+          />
+        </Box>
+
         <Box
           sx={{
             position: "relative",
-            width: 200,
-            height: 142,
-            left: 10,
-            bottom: 150,
+            right: 65,
+            bottom: 130,
             gap: 1,
             display: "flex",
             flexDirection: "column",
           }}
         >
-          <Typography fontWeight={700} variant="h6">
+          <Typography fontWeight={700} fontSize={20}>
             Car Marketplace
           </Typography>
-          <Typography fontSize={8} varian="subtitle2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc odio
-            in et, lectus sit lorem id integer.
-          </Typography>
 
-          <Button
-            size="small"
-            sx={{ width: 100, height: 20 }}
-            variant="contained"
-            color="error"
-          >
-            Get Stared
-          </Button>
+          <Box sx={{ width: 180 }}>
+            <Typography fontSize={7} fontWeight={300}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc odio
+              in et, lectus sit lorem id integer.
+            </Typography>
+
+            <Button
+              sx={{ width: 80, height: 20, mt: 2 }}
+              variant="contained"
+              color="error"
+            >
+              <Typography fontSize={7} fontWeight={500}>
+                Get Started
+              </Typography>
+            </Button>
+          </Box>
         </Box>
       </Box>
     </>

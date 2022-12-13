@@ -4,7 +4,6 @@ import {
   Divider,
   Modal,
   Popover,
-  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -37,10 +36,9 @@ const styles = {
     color: "#FFFFFF",
     borderRadius: 20,
     display: "flex",
-    flexDirection: "column",
+    textAlign: "center",
     justifyContent: "center",
     alignItems: "center",
-    alignContent: "center",
   },
 };
 
@@ -64,7 +62,7 @@ function AdminBrandEdit() {
     setPopoverLogo(null);
   };
   return (
-    <Stack>
+    <Box>
       <Box>
         <Box
           sx={{ color: "#2F465F", display: "flex", alignItems: "center", p: 1 }}
@@ -77,14 +75,14 @@ function AdminBrandEdit() {
           >
             <ArrowBackIosNewIcon fontSize="small" />
           </Button>
-          <Typography variant="h6" fontWeight={600}>
+          <Typography fontSize={24} fontWeight={600}>
             Brand Details
           </Typography>
         </Box>
       </Box>
 
       <Box sx={{ pl: 2, width: 552, p: 2 }}>
-        <Typography mb={1} variant="subtitle2" fontWeight={600}>
+        <Typography mb={1} fontSize={14} fontWeight={600}>
           Brand Logo
         </Typography>
         <Divider sx={{ mb: 2 }} />
@@ -94,32 +92,27 @@ function AdminBrandEdit() {
         </Box>
         <Modal
           sx={{
-            position: "absolute",
-            left: "22%",
-            top: "30%",
             width: 100,
             height: 100,
-            color: "#FFFFFF",
-            backgroundColor: "#8C8C8C",
             borderRadius: 20,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            alignContent: "center",
+            position: "absolute",
+            left: "23.5%",
+            top: "31%",
+            backgroundColor: "#5F5F5F",
           }}
           open={Boolean(popoverLogo)}
           onClose={handlePopoverClose}
         >
           <Box onClick={handlePopoverClose} sx={styles.styleBoxLogo}>
-            CHANGE
-            <Box component="div">LOGO</Box>
+            <Typography fontWeight={600} fontSize={16}>
+              CHANGE LOGO
+            </Typography>
           </Box>
         </Modal>
       </Box>
 
       <Box sx={{ color: "#232323", width: 552, p: 3 }}>
-        <Typography mb={1} variant="subtitle2" color="#232323" fontWeight={600}>
+        <Typography mb={1} fontSize={14} color="#232323" fontWeight={600}>
           Brand Details
         </Typography>
         <Divider />
@@ -132,19 +125,14 @@ function AdminBrandEdit() {
           }}
         >
           <Box width={240} mr={2}>
-            <Typography
-              color="#8C8C8C"
-              mb={0.5}
-              variant="subtitle2"
-              fontWeight={400}
-            >
+            <Typography color="#8C8C8C" mb={0.5} fontSize={14} fontWeight={400}>
               Brand Name
             </Typography>
             <TextField size="small" placeholder="UCARS PTE LTD" />
           </Box>
 
           <Box ml={5}>
-            <Typography color="#8C8C8C" variant="subtitle2" fontWeight={400}>
+            <Typography color="#8C8C8C" fontSize={14} fontWeight={400}>
               Brand Status
             </Typography>
             <Box
@@ -157,15 +145,17 @@ function AdminBrandEdit() {
                 mt: 1,
                 backgroundColor: "#CEF7E2",
                 color: "#1F7B4D ",
-                width: 99,
+                width: 131,
                 height: 34,
                 borderRadius: 5,
                 justifyContent: "space-evenly",
               }}
               onClick={handleClick}
             >
-              <AdjustRoundedIcon />
-              <Typography variant="subtitle2">Active</Typography>
+              <AdjustRoundedIcon fontSize="small" />
+              <Typography fontWeight={500} fontSize={16}>
+                Active
+              </Typography>
               <KeyboardArrowDownIcon sx={{ color: "#232323" }} />
             </Box>
             <Popover
@@ -180,7 +170,12 @@ function AdminBrandEdit() {
               <Box
                 sx={{
                   width: 150,
-                  p: 0.5,
+                  height: 104,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  boxShadow: 5,
                 }}
               >
                 <Box
@@ -235,7 +230,7 @@ function AdminBrandEdit() {
             mt: 2,
           }}
         >
-          <Typography color="#8C8C8C" variant="subtitle2" fontWeight={400}>
+          <Typography color="#8C8C8C" fontSize={14} fontWeight={400}>
             Brand Description
           </Typography>
           <TextField
@@ -247,12 +242,17 @@ function AdminBrandEdit() {
         </Box>
       </Box>
 
-      <Box sx={{ pl: 3 }}>
-        <Button size="small" variant="contained">
+      <Box sx={{ pl: 3, mb: 3 }}>
+        <Button
+          sx={{ width: 135, height: 40 }}
+          size="small"
+          variant="contained"
+          color="primary"
+        >
           Save Changes
         </Button>
       </Box>
-    </Stack>
+    </Box>
   );
 }
 

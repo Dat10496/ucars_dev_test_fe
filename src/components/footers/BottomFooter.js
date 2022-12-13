@@ -24,10 +24,10 @@ import FooterLogo from "../../images/footerlogo.png";
 const styles = {
   styleBoxContact: {
     display: "flex",
-    m: 1,
-    mt: 2,
+    mt: 1,
     width: { xs: 340, sm: 310 },
     alignItems: "center",
+    pl: { xs: 1, sm: 0 },
   },
   styleTypo: {
     display: { xs: "flex", sm: "block" },
@@ -35,6 +35,11 @@ const styles = {
     alignItems: "center",
     width: 350,
     mb: { xs: 2, sm: 0 },
+  },
+  styleStack: {
+    "&: hover": {
+      cursor: "pointer",
+    },
   },
 };
 
@@ -78,26 +83,43 @@ function BottomFooter() {
   };
   // -------------------
   return (
-    <Box sx={{ maxHeight: { sm: 360, xs: 1000 } }}>
-      <Stack
-        sx={{ alignItems: { sm: "center" } }}
-        direction={{ sm: "row", xs: "column" }}
-        spacing={5}
+    <Box
+      sx={{
+        maxHeight: { sm: 360, xs: 1500 },
+        display: { sm: "flex" },
+        flexDirection: "column",
+        alignItems: "center",
+        mt: 1,
+      }}
+    >
+      <Box
+        sx={{
+          alignItems: { sm: "center" },
+          display: { xs: "block", sm: "flex" },
+          width: { sm: 1185 },
+          height: { sm: 220 },
+          justifyContent: "space-between",
+        }}
       >
-        <Box p={2}>
+        <Box
+          sx={{
+            position: "relative",
+            top: { sm: 25, xs: 0 },
+          }}
+        >
           <Box
-            component="img"
-            src={CarBuyerImg}
-            sx={{
-              height: { xs: 40, sm: "" },
-            }}
-          />
+            width={{ sm: 299, xs: 158 }}
+            height={{ sm: 62, xs: 48 }}
+            p={{ xs: 1, sm: 0 }}
+          >
+            <Box component="img" src={CarBuyerImg} width="100%" />
+          </Box>
 
           <Box sx={styles.styleBoxContact}>
             <PinDropIcon fontSize="small" />
 
             <Box sx={styles.styleTypo}>
-              <Typography variant="subtitle2" ml={1} fontSize={12}>
+              <Typography fontWeight={400} ml={1} fontSize={12} color="#232323">
                 71 Ayer Rajah Crescent, #06-14, Singapore 139951
               </Typography>
             </Box>
@@ -107,7 +129,7 @@ function BottomFooter() {
             <PhoneEnabledIcon fontSize="small" />
 
             <Box sx={styles.styleTypo}>
-              <Typography variant="subtitle2" ml={1} fontSize={12}>
+              <Typography fontWeight={400} ml={1} fontSize={12} color="#232323">
                 +65 8808 7905
               </Typography>
             </Box>
@@ -117,7 +139,7 @@ function BottomFooter() {
             <EmailIcon fontSize="small" />
 
             <Box sx={styles.styleTypo}>
-              <Typography variant="subtitle2" ml={1} fontSize={12}>
+              <Typography fontWeight={400} ml={1} fontSize={12} color="#232323">
                 hello@carbuyer.com.sg
               </Typography>
             </Box>
@@ -133,49 +155,73 @@ function BottomFooter() {
         >
           <Box color="#5F5F5F">
             <Typography
-              sx={{ color: "#232323", fontWeight: 600 }}
-              variant="subtitle1"
+              sx={{
+                color: "#232323",
+                fontWeight: 600,
+                fontSize: 16,
+              }}
             >
               About
             </Typography>
-            <Stack spacing={1} mt={1}>
-              <Typography variant="body2">About Us</Typography>
-              <Typography variant="body2">Contact Us</Typography>
-              <Typography variant="body2">Careers</Typography>
+            <Stack sx={styles.styleStack} spacing={1} mt={1}>
+              <Typography fontWeight={400} fontSize={14}>
+                About Us
+              </Typography>
+              <Typography fontWeight={400} fontSize={14}>
+                Contact Us
+              </Typography>
+              <Typography fontWeight={400} fontSize={14}>
+                Careers
+              </Typography>
             </Stack>
           </Box>
 
           <Box color="#5F5F5F">
             <Typography
-              sx={{ color: "#232323", fontWeight: 600 }}
-              variant="subtitle1"
+              sx={{ color: "#232323", fontWeight: 600, fontSize: 16 }}
             >
               Services
             </Typography>
-            <Stack spacing={1} mt={1}>
-              <Typography variant="body2">Buy Used Cars</Typography>
-              <Typography variant="body2">Buy New Cars</Typography>
-              <Typography variant="body2">Be a Dealer with UCARS</Typography>
+            <Stack sx={styles.styleStack} spacing={1} mt={1}>
+              <Typography fontWeight={400} fontSize={14}>
+                Buy Used Cars
+              </Typography>
+              <Typography fontWeight={400} fontSize={14}>
+                Buy New Cars
+              </Typography>
+              <Typography fontWeight={400} fontSize={14}>
+                Be a Dealer with UCARS
+              </Typography>
             </Stack>
           </Box>
 
           <Box color="#5F5F5F">
             <Typography
-              sx={{ color: "#232323", fontWeight: 600 }}
-              variant="subtitle1"
+              sx={{ color: "#232323", fontWeight: 600, fontSize: 16 }}
             >
               Resources
             </Typography>
-            <Stack spacing={1} mt={1}>
-              <Typography variant="body2">News</Typography>
-              <Typography variant="body2">Sell My Car</Typography>
-              <Typography variant="body2">COE Prices</Typography>
+            <Stack sx={styles.styleStack} spacing={1} mt={1}>
+              <Typography fontWeight={400} fontSize={14}>
+                News
+              </Typography>
+              <Typography fontWeight={400} fontSize={14}>
+                Sell My Car
+              </Typography>
+              <Typography fontWeight={400} fontSize={14}>
+                COE Prices
+              </Typography>
             </Stack>
           </Box>
         </Box>
 
         {/*------------- media-query-------------------------------------- */}
-        <Box sx={{ display: { sm: "none", xs: "block" }, p: { sm: 0, xs: 1 } }}>
+        <Box
+          sx={{
+            display: { sm: "none", xs: "block" },
+            p: { sm: 0, xs: 1 },
+          }}
+        >
           <Divider />
           <Box
             sx={{
@@ -291,25 +337,30 @@ function BottomFooter() {
 
           <Divider />
         </Box>
-        {/* ------------------------------------------------------ */}
+        {/* -------------------------------------------------------------- */}
 
         <Box
           sx={{
             width: { xs: 375 },
             display: { sm: "block", xs: "flex" },
             flexDirection: "column",
-            alignItems: "center",
+            alignItems: { sm: "center", xs: "flex-start" },
+            mt: { xs: 2, sm: 0 },
           }}
         >
-          <Typography fontSize={12} sx={{ display: "flex" }} variant="body2">
+          <Typography
+            fontWeight={400}
+            fontSize={{ sm: 14, xs: 12 }}
+            sx={{ display: "flex", pl: { sm: 0, xs: 1 } }}
+          >
             Get the{" "}
             <Typography
               component="span"
               color="#EE1B24"
               ml={0.5}
               mr={0.5}
-              variant="body2"
-              fontSize={12}
+              fontWeight={400}
+              fontSize={{ sm: 14, xs: 12 }}
             >
               {" "}
               latest
@@ -319,7 +370,8 @@ function BottomFooter() {
 
           <Box
             sx={{
-              width: { xs: 345 },
+              width: { xs: 370 },
+              pl: { sm: 0, xs: 1 },
             }}
             mt={1}
           >
@@ -327,9 +379,16 @@ function BottomFooter() {
               size="small"
               variant="outlined"
               placeholder="Enter your email"
+              sx={{ width: { sm: 253, xs: 256 }, height: { sm: 38, xs: 40 } }}
             />
-            <Button color="error" variant="contained">
-              Subscribe
+            <Button
+              sx={{ width: { sm: 104, xs: 89 }, height: 38 }}
+              color="error"
+              variant="contained"
+            >
+              <Typography fontSize={{ sm: 14, xs: 12 }} fontWeight={600}>
+                Subscribe
+              </Typography>
             </Button>
           </Box>
 
@@ -339,11 +398,15 @@ function BottomFooter() {
               mt: { sm: 2, xs: 3 },
               ml: { sm: 0, xs: 1 },
               width: { xs: 320 },
+              pl: { sm: 0, xs: 1 },
             }}
           >
-            <Typography variant="body2">Follow us</Typography>
+            <Typography fontWeight={400} fontSize={{ sm: 14, xs: 12 }}>
+              Follow us
+            </Typography>
 
             <Stack
+              sx={styles.styleStack}
               mr={{ xs: 4, sm: 0 }}
               ml={{ sm: 1, xs: 2 }}
               spacing={1}
@@ -357,7 +420,8 @@ function BottomFooter() {
             </Stack>
           </Box>
         </Box>
-      </Stack>
+      </Box>
+
       <Box
         sx={{
           borderTop: "1px solid #FAFAFA",
@@ -366,50 +430,66 @@ function BottomFooter() {
           justifyContent: "space-between",
         }}
       >
-        <Box>
-          <Box sx={{ display: { sm: "block", xs: "none" } }}>
-            <Typography variant="subtitle2">
+        <Box
+          sx={{
+            width: { sm: 1185 },
+            height: { sm: 70 },
+            display: { sm: "flex", xs: "block" },
+            justifyContent: "space-between",
+          }}
+        >
+          <Box>
+            <Typography
+              sx={{ display: { sm: "block", xs: "none" } }}
+              fontWeight={400}
+              fontSize={14}
+            >
               Advertising Terms and Conditions Platform Terms and Conditions
               Privacy Policy
             </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              mt: 1.5,
-              justifyContent: { xs: "flex-start", sm: "" },
-            }}
-            component="div"
-          >
-            <Box component="img" src={FooterLogo} />
-
             <Box
               sx={{
                 display: "flex",
-                width: { xs: 276, sm: 500 },
-                height: { xs: 40, sm: 20 },
-                textAlign: { xs: "center", sm: "start" },
+                alignItems: "center",
+                mt: { sm: 1.5, xs: 0 },
+                justifyContent: { xs: "flex-start", sm: "" },
               }}
+              component="div"
             >
-              <Typography
-                ml={1}
-                color="#5F5F5F"
-                fontSize={11}
-                variant="subtitle2"
+              <Box width={{ sm: 56, xs: 59 }} height={{ sm: 11, xs: 16 }}>
+                <Box
+                  component="img"
+                  src={FooterLogo}
+                  alt="ucars"
+                  width="100%"
+                />
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  width: { xs: 276, sm: 550 },
+                  height: { xs: 40, sm: 20 },
+                  textAlign: { xs: "center", sm: "start" },
+                }}
               >
-                CarBuyer Pte Ltd and the CarBuyer Singapore brand are wholly
-                owned by UCARS Pte Ltd
-              </Typography>
+                <Typography
+                  ml={1}
+                  color="#5F5F5F"
+                  fontWeight={400}
+                  fontSize={{ sm: 12, xs: 10 }}
+                >
+                  CarBuyer Pte Ltd and the CarBuyer Singapore brand are wholly
+                  owned by UCARS Pte Ltd
+                </Typography>
+              </Box>
             </Box>
           </Box>
-        </Box>
 
-        <Box sx={{ display: { sm: "block", xs: "none" } }}>
-          <Typography fontSize={12} variant="subtitle1" color="#8C8C8C">
-            © 2022. All rights reserved.
-          </Typography>
+          <Box sx={{ display: { sm: "block", xs: "none" } }}>
+            <Typography fontSize={12} fontWeight={400} color="#8C8C8C">
+              © 2022. All rights reserved.
+            </Typography>
+          </Box>
         </Box>
       </Box>
 
